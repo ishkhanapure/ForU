@@ -1,0 +1,14 @@
+@import "@fontsource/inter";
+@import "@fontsource/luckiest-guy";
+
+body {
+  font-family: 'Inter', 'sans-serif';
+}
+
+.main-title, h1, h2, label, button {
+  font-family: 'Luckiest Guy', 'Playfair Display', cursive, serif;
+}
+
+input {
+  font-family: 'Inter', 'sans-serif';
+}
