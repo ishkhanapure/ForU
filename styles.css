@@ -1,14 +1,15 @@
-@import "@fontsource/inter";
-@import "@fontsource/luckiest-guy";
-
 body {
-  font-family: 'Inter', 'sans-serif';
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #ffe2cc, #ffb6b9);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 .main-title, h1, h2, label, button {
-  font-family: 'Luckiest Guy', 'Playfair Display', cursive, serif;
+  font-family: 'Fredoka One', cursive, serif;
 }
 
 input {
-  font-family: 'Inter', 'sans-serif';
+  font-family: 'Poppins', sans-serif;
 }
