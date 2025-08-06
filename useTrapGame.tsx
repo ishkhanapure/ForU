@@ -71,9 +71,7 @@ export const useTrapGame = create<GameState>()(
       if (
         state.phase !== "trap_placement" ||
         state.trapsPlaced[state.currentTrapPlacer] !== null
-      ) {
-        return;
-      }
+      ) return;
 
       const updatedGrid = [...state.grid];
       updatedGrid[boxIndex] = {
@@ -106,22 +104,21 @@ export const useTrapGame = create<GameState>()(
 
     clickBox: (boxIndex) => {
       const state = get();
-      if (state.phase !== "gameplay" || state.grid[boxIndex].revealed) {
-        return;
-      }
+      if (state.phase !== "gameplay" || state.grid[boxIndex].revealed) return;
 
       const updatedGrid = [...state.grid];
       const clickedBox = updatedGrid[boxIndex];
       clickedBox.revealed = true;
 
       if (clickedBox.state === "trap") {
-        // If trap is hit, the player who did not set the trap wins
-        const winner = clickedBox.trapOwner === 1 ? 2 : 1;
+        // Player who hits the trap loses
+        const loser = state.currentPlayer;
+        const winner = loser === 1 ? 2 : 1;
         set({
           grid: updatedGrid,
           phase: "game_over",
           winner,
-          message: `${state.playerNames[winner]} wins! ${state.playerNames[state.currentPlayer]} hit a trap!`,
+          message: `${state.playerNames[winner]} wins! ${state.playerNames[loser]} hit a trap!`,
         });
       } else {
         clickedBox.state = "safe";
